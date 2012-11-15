@@ -1,2 +1,2 @@
-<%= link_to document.name, document %> (Size: <%= document.size %>, uploaded
-<%= document.created_at.strftime '%a, %b %-d at %l:%M %p' %>)
+<%= link_to document.name, document %> (Size: <%= document.size %>, type: <% if document.type.nil? %><i>Unknown</i>
+<% else %><%= document.type %><% end %>, uploaded <%= document.created_at.strftime '%a, %b %-d at %l:%M %p' %>)
