@@ -13,5 +13,6 @@ describe 'document pages' do
 
     it { should have_selector('h1', text: doc.name) }
     it { should have_content("Size: #{doc.size}") }
+    it { should have_content("Type: #{doc.type}") }
   end
 end
