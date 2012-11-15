@@ -1,5 +1,6 @@
 <h1>Welcome, <%= @user.twitter_username %>!</h1>
 
+<h2>Uploaded Documents</h2>
 <ol>
     <% @user.documents.desc(:created_at).each do |doc| %>
         <li><%= render doc %></li>
