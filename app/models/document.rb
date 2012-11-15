@@ -4,6 +4,7 @@ class Document
   field :name, type: String
   field :size, type: Integer
   field :attrs, type: Hash, default: {}
+  field :created_at, type: DateTime, default: ->{ Time.now }
 
   attr_accessible :name, :size, :attrs
 

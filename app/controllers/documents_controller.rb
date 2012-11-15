@@ -15,7 +15,11 @@ class DocumentsController < ApplicationController
       current_user.documents.new name: upload.original_filename,
                                  size: upload.read.size
     attrs = {}
-    params[:document][:attrs].each { |_, attr| attrs[attr[:name]] = attr[:val] }
+    if params[:document][:attrs]
+      params[:document][:attrs].each do |_, attr|
+        attrs[attr[:name]] = attr[:val]
+      end
+    end
     doc.attrs = attrs
     doc.save!
 

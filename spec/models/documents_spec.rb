@@ -12,6 +12,7 @@ describe Document do
   it { should respond_to(:user) }
   it { should respond_to(:type) }
   it { should respond_to(:attrs) }
+  it { should respond_to(:created_at) }
 
   subject { doc }
 
