@@ -15,9 +15,7 @@ class DocumentsController < ApplicationController
       current_user.documents.new name: upload.original_filename,
                                  size: upload.read.size
     attrs = {}
-    params[:document].select { |key, _| key =~ /^name-\d+$/ }.each do |key, val|
-      attrs[val] = params[:document]["val-#{key.match(/\d+$/)[0]}"]
-    end
+    params[:document][:attrs].each { |_, attr| attrs[attr[:name]] = attr[:val] }
     doc.attrs = attrs
     doc.save!
 
