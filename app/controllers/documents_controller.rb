@@ -11,10 +11,9 @@ class DocumentsController < ApplicationController
 
   def create
     upload = params[:document][:upload_data]
-    data = upload.read
     doc =
       current_user.documents.create! name: upload.original_filename,
-                                     size: data.size
+                                     size: upload.read.size
 
     flash[:notice] = 'Document uploaded'
     redirect_to doc
