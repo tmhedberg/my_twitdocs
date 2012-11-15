@@ -3,6 +3,7 @@ class Document
 
   field :name, type: String
   field :size, type: Integer
+  field :attrs, type: Hash
 
   attr_accessible :name, :size
 
