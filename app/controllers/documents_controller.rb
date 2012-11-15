@@ -22,4 +22,10 @@ class DocumentsController < ApplicationController
     flash[:notice] = 'Document uploaded'
     redirect_to doc
   end
+
+  private
+    def authenticate_user!(*args)
+      session[:return_to] = request.url
+      super *args
+    end
 end

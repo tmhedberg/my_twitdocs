@@ -4,7 +4,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
     flash[:success] = 'Signed in successfully'
 
-    sign_in_and_redirect @user
+    sign_in @user
+    redirect_to(session[:return_to] || @user)
   end
 
   def failure
