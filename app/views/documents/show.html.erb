@@ -2,4 +2,7 @@
 <ul>
     <li>Size: <%= @doc.size %></li>
     <li>Type: <% if @doc.type.nil? %><i>Unknown</i><% else %><%= @doc.type %><% end %></li>
+    <% @doc.attrs.each do |key, value| %>
+        <li><%= key %>: <%= value %></li>
+    <% end %>
 </ul>
