@@ -7,7 +7,7 @@ MyTwitdocs::Application.routes.draw do
 
   root to: 'home#index'
 
-  resources :users
+  resources :users, :documents
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
