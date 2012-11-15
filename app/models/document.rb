@@ -3,9 +3,9 @@ class Document
 
   field :name, type: String
   field :size, type: Integer
-  field :attrs, type: Hash
+  field :attrs, type: Hash, default: {}
 
-  attr_accessible :name, :size
+  attr_accessible :name, :size, :attrs
 
   belongs_to :user
 
