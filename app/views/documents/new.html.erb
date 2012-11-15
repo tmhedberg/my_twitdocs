@@ -6,6 +6,10 @@
 
     <%= f.file_field :upload_data %>
 
+    <%= field_set_tag 'Attributes', id: 'attrs' do %>
+        <%= button_tag(type: 'button', id: 'add-attr') { 'Add attribute' } %>
+    <% end %>
+
     <%= f.submit %>
 
 <% end %>
