@@ -15,4 +15,10 @@ describe 'document pages' do
     it { should have_content("Size: #{doc.size}") }
     it { should have_content("Type: #{doc.type}") }
   end
+
+  describe 'new' do
+    before { visit new_document_path }
+
+    it { should have_selector('h1', text: 'Upload Document') }
+  end
 end
