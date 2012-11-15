@@ -14,6 +14,14 @@ describe 'document pages' do
     it { should have_selector('h1', text: doc.name) }
     it { should have_content("Size: #{doc.size}") }
     it { should have_content("Type: #{doc.type}") }
+
+    describe 'with unknown file type' do
+      let(:doc_unknown) { Document.create name: 'test', size: 20 }
+
+      before { visit document_path(doc_unknown) }
+
+      it { should have_content('Type: Unknown') }
+    end
   end
 
   describe 'new' do
