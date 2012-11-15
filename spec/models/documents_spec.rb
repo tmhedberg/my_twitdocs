@@ -5,4 +5,5 @@ describe Document do
 
   it { should respond_to(:name) }
   it { should respond_to(:size) }
+  it { should respond_to(:user) }
 end

@@ -5,4 +5,6 @@ class Document
   field :size, type: Integer
 
   attr_accessible :name, :size
+
+  belongs_to :user
 end

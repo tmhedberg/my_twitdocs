@@ -10,6 +10,8 @@ class User
 
   field :twitter_username, type: String
 
+  has_many :documents
+
   def self.find_for_twitter_oauth(omniauth)
     user =
       User.where(oauth_provider: omniauth['provider'], oauth_uid: omniauth['uid'])
