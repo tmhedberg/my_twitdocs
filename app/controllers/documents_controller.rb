@@ -1,4 +1,6 @@
 class DocumentsController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create]
+
   def show
     @doc = Document.find params[:id]
   end

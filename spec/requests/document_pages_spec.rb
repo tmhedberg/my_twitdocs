@@ -6,6 +6,14 @@ describe 'document pages' do
     Document.create name: 'test_document.txt', size: 20, user_id: user._id
   end
 
+  before do
+    OmniAuth.config.test_mode = true
+    OmniAuth.config.mock_auth[:twitter] =
+      OmniAuth::AuthHash.new provider: 'twitter',
+                             uid: user.oauth_uid,
+                             info: { nickname: user.twitter_username }
+  end
+
   subject { page }
 
   describe 'show' do
@@ -25,8 +33,21 @@ describe 'document pages' do
   end
 
   describe 'new' do
-    before { visit new_document_path }
+    describe 'when not logged in' do
+      before { get new_document_path }
 
-    it { should have_selector('h1', text: 'Upload Document') }
+      specify do
+        response.should redirect_to(new_user_session_url)
+      end
+    end
+
+    describe 'when logged in' do
+      before do
+        visit user_omniauth_authorize_path(:twitter)
+        visit new_document_path
+      end
+
+      it { should have_selector('h1', text: 'Upload Document') }
+    end
   end
 end
