@@ -4,5 +4,6 @@ class DocumentsController < ApplicationController
   end
 
   def new
+    @doc = Document.new
   end
 end

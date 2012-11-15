@@ -1,1 +1,9 @@
 <h1>Upload Document</h1>
+
+<%= form_for @doc do |f| %>
+
+    <%= f.file_field :upload_data %>
+
+    <%= f.submit %>
+
+<% end %>
